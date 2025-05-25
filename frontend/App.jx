@@ -1,0 +1,22 @@
+import React, { useState } from 'react';
+import HealthRecordTable from './components/HealthRecordTable';
+import FilterBar from './components/FilterBar';
+import SearchBar from './components/SearchBar';
+
+export default function App() {
+  const [filters, setFilters] = useState({
+    type: '',
+    startDate: '',
+    endDate: '',
+    searchTerm: ''
+  });
+
+  return (
+    <div className="min-h-screen bg-gray-50 p-6">
+      <h1 className="text-2xl font-bold text-blue-800 mb-4">Patient Health Records</h1>
+      <FilterBar filters={filters} setFilters={setFilters} />
+      <SearchBar filters={filters} setFilters={setFilters} />
+      <HealthRecordTable filters={filters} />
+    </div>
+  );
+}
